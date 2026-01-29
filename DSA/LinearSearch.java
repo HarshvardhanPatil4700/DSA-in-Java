@@ -1,10 +1,18 @@
+// Linear search (Sequential search) is a searching technique in which elements are checked sequentially one by one from the beginning of the list until the required element is found or the list ends
+// Time Complexity (TC) -
+// Best case: O(1)
+// Average case: O(n)
+// Worst case: O(n) 
+
+// Space Complexity (SC): O(1)
+
 import java.util.*;
 
 public class LinearSearch {
     public static int linearSearch(int numbers[], int key){
         for(int i=0; i<numbers.length; i++){
             if(numbers[i] == key){
-                return i; // if key is found return its index
+                return i; // if key is found, return its index
             } 
         }
         return -1; // key not found
@@ -21,14 +29,13 @@ public class LinearSearch {
         }
         if(!a){
             System.out.println("Absent");
-        }
-        
+        }        
     }
 
     // largest and smallest number
     public static int largestAndSmallestNum(int nums[]){
-        int largest = Integer.MIN_VALUE;
-        int smallest = Integer.MAX_VALUE;
+        int largest = Integer.MIN_VALUE; // smallest value the integer data type can store
+        int smallest = Integer.MAX_VALUE; // largest value the integer data type can store
         for(int i=0; i<nums.length; i++){
             if (nums[i] >= largest){
                 largest = nums[i];                
@@ -40,6 +47,7 @@ public class LinearSearch {
         System.out.println("Smallest value is : " + smallest);
         return largest;
     }
+    
     public static void main(String[] args) {
         int numbers[] = {2,4,6,8,10,12,14,16};
         int key = 10;

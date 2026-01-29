@@ -31,7 +31,7 @@ public class Arrays {
         System.out.println("Maths : " + marks[2]);
 
         double percentage = ((marks[0] + marks[1] + marks[2]) / 3);
-        System.out.println("Percentage = " + percentage);        
+        System.out.println("Percentage = " + percentage + "%");        
 
         // Length of array : 
         System.out.println("Length of array = " + marks.length); // 100 bcoz we initialised array with size as 100
@@ -54,7 +54,7 @@ public class Arrays {
         
     }
     public static void updateScoreby1(int scores[]){
-        int n =20; // Changing value of int data type to 20
+        int n =20; // Changing value of int data type to 20 (but does not happens, bcoz int is PASS BY VALUE)
         for(int i=0; i<scores.length; i++){  // (not i<=scores.length bcoz length is one greater than last index)
             scores[i] += 1;
         }
