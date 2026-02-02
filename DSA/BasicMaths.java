@@ -61,7 +61,7 @@ public class BasicMaths {
         }
         return temp == sum;
     }
-    // 5. Print all divisors : TC = O(N)
+    // 5. Print all divisors(Factors) : TC = O(N)
     public void printDivisors(int n) {
         // Approach 1:
         // for(int i = 0; i<=n;i++){ // divide by zero exception
@@ -76,7 +76,7 @@ public class BasicMaths {
         for (int i = 1; i <= Math.sqrt(n); i++) { // tc = O((sqrt(n)))
             if (n % i == 0) {
                 factors.add(i);
-                if (i != n / i) {
+                if (i != (n / i)) {
                     factors.add(n / i);
                 }
             }
@@ -85,8 +85,58 @@ public class BasicMaths {
         System.out.println(factors);// tc = O(no. of factors)
     }
 
-    // 6. Check for prime :
+    // 6. Prime number check :
+    public boolean primeNumCheck(int n) {
+        int cntr = 0;
+        // for(int i=0;i<=n;i++){ TC = O(N)
+        //     if(n%i ==0) cntr++;
+        // }
+
+        for(int i=1; i<=Math.sqrt(n);i++){ // TC = O(sqrt(N))
+            if(n%i==0){
+                cntr++;
+                if((n/i) != i){
+                    cntr++;
+                }
+            }
+        }
+
+        // if(cntr == 2) 
+        //     return true;
+        // else
+        //     return false;
+        // (OR) 
+        // return cntr == 2 ? true : false; 
+        // (OR)
+        return cntr == 2; 
+    }
     
+    // 7. GCD / HCF :
+    public int gcd(int n1,int n2){ 
+        int gcd = 1; // 1 is the smallest possible GCD of any two integers.
+
+        // for(int i = 1; i <= Math.min(n1,n2);i++){ // TC = O(min(n1,n2))
+        //     if(n1%i == 0 && n2%i == 0){
+        //         gcd = i;
+        //     }
+        // }
+        // return gcd;
+
+        // for(int i = Math.min(n1, n2); i >= 1; i--) { // TC = O(min(n1,n2)) but time complexity is improved as it takes less steps
+        //     if(n1%i == 0 && n2%i == 0){
+        //         gcd = i;
+        //         break;
+        //     }
+        // }
+        // return gcd;
+
+        // Using euclidean algorithm : TC = O(log(min(n1,n2)))
+        while(n1 > 0 && n2 > 0) {
+            if(n1 > n2) n1 = n1 % n2;
+            else n2 = n2 % n1;
+        }
+        return n1 == 0 ? n2 : n1; // i n1=0 return n2(gcd) and if n2=0 then return n1(gcd)
+    }
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
@@ -115,5 +165,16 @@ public class BasicMaths {
         // 5. Print all divisors :
         System.out.print("Divisors of 36 : ");
         b.printDivisors(36);
+
+        // 6. Prime number check :
+        System.out.print("Enter a number to check if it is prime number : ");
+        int num1 = s.nextInt();
+        System.out.println(b.primeNumCheck(num1));
+
+        // 7. GCD / HCF :
+        System.out.println(b.gcd(52, 10));
+
+
+
     }
 }
