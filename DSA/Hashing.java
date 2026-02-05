@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 public class Hashing {
     public static void main(String[] args) {
+        // Hashing : Counting frequencies of array elements
         Scanner s = new Scanner(System.in);
 
         // int a[] = {1,2,3,2,1,2}; {TC is O(N) for each query.Hence, Q*O(N) for 'Q' queries}
@@ -67,7 +68,7 @@ public class Hashing {
         System.out.println(map.get("Apple")); // 4
         System.out.println(map.containsKey("Banana")); // true
 
-        // Character Hashing: 
+        // Character Hashing : 
 
         // hash h = new hash();
         // String str = "abcdabefc";
