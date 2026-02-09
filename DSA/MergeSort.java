@@ -22,17 +22,40 @@ public class MergeSort {
         int k = 0;         // pointer for temp array
 
         // compare and merge
+        // while (i <= mid && j <= right) {
+        //     if (arr[i] <= arr[j]) {
+        //         temp[k++] = arr[i++];
+        //     } else {
+        //         temp[k++] = arr[j++];
+        //     }
+        // }
         while (i <= mid && j <= right) {
             if (arr[i] <= arr[j]) {
-                temp[k++] = arr[i++];
+                temp[k] = arr[i];
+                i++;
             } else {
-                temp[k++] = arr[j++];
+                temp[k] = arr[j];
+                j++;
             }
+            k++;
         }
 
         // copy remaining elements
-        while (i <= mid) temp[k++] = arr[i++];
-        while (j <= right) temp[k++] = arr[j++];
+        // while (i <= mid) temp[k++] = arr[i++];
+        // while (j <= right) temp[k++] = arr[j++];
+        // copy remaining elements from left half
+        while (i <= mid) {
+            temp[k] = arr[i];
+            i++;
+            k++;
+        }
+
+        // copy remaining elements from right half
+        while (j <= right) {
+            temp[k] = arr[j];
+            j++;
+            k++;
+        }
 
         // copy temp back to original array
         for (int x = 0; x < temp.length; x++) {
