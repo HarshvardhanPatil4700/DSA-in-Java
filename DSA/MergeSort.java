@@ -29,11 +29,11 @@ public class MergeSort {
         //         temp[k++] = arr[j++];
         //     }
         // }
-        while (i <= mid && j <= right) {
-            if (arr[i] <= arr[j]) {
+        while (i <= mid && j <= right) { // if elements exists
+            if (arr[i] <= arr[j]) { // when left part of array has smaller value, Push left part's value in temp array and move pointer(i) forward
                 temp[k] = arr[i];
                 i++;
-            } else {
+            } else { // when right part of array has smaller value, Push right part's value in temp array and move pointer (j) forward
                 temp[k] = arr[j];
                 j++;
             }
