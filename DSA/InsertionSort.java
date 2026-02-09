@@ -30,5 +30,11 @@ public class InsertionSort {
         for(int x : arr) {
             System.out.print(x + " ");
         }
+
+        // Kth smallest term : first sort the array using sorting algo. and then print(arr[k-1]) to get kth smallest term.
+        System.out.print("\nEnter k : ");
+        int k = s.nextInt();
+        System.out.println("Kth smallest term is : " + arr[k-1]);
+        // Kth largest term : first sort the array using sorting algo. in descending order and then print(arr[k-1]) to get kth largest term.
     }
 }

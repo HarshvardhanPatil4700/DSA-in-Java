@@ -9,6 +9,7 @@
 import java.util.Scanner;
 
 public class SelectionSort {
+    
     public static void selectionSort(int arr[], int n) {
         for(int i = 0; i <= n-2; i++) {
             int min = i;
@@ -19,6 +20,20 @@ public class SelectionSort {
             }
             int temp = arr[min];
             arr[min] = arr[i];
+            arr[i] = temp;
+        }
+    } 
+
+    public static void selectionSortDesc(int arr[], int n) {
+        for(int i = 0; i <= n-2; i++) {
+            int max = i;
+            for(int j = i+1; j <= n-1; j++) { // we already assume as min = i, So, no need to compare again with i hence we used i+1
+                if(arr[j] > arr[max]) {
+                    max = j;
+                }
+            }
+            int temp = arr[max];
+            arr[max] = arr[i];
             arr[i] = temp;
         }
     } 
@@ -33,8 +48,13 @@ public class SelectionSort {
         }
         
         selectionSort(arr, n);
-
         System.out.print("Sorted array : ");
+        for(int x : arr) {
+            System.out.print(x + " ");
+        }
+        
+        selectionSortDesc(arr, n);
+        System.out.print("\nSorted array : ");
         for(int x : arr) {
             System.out.print(x + " ");
         }
