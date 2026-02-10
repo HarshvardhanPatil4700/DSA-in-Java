@@ -1,8 +1,7 @@
-// to check if given array is sorted or not :
-
 import java.util.Scanner;
 
 public class CheckIfArrayIsSorted {
+    // TODO : Check if array is sorted or not
     public static boolean isSorted(int a[],int n) {
         // for(int i = 0; i<a.length-1;i++) {
         //     if(a[i] < a[i+1]) {
@@ -21,6 +20,7 @@ public class CheckIfArrayIsSorted {
         return true;
     }
 
+    // TODO : Check if array is sorted in descending order or not
     public static boolean isSortedDesc(int a[],int n) {
         for(int i = 1; i < n ;i++) {
             if(a[i] > a[i-1]) {
@@ -33,7 +33,7 @@ public class CheckIfArrayIsSorted {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
 
-        
+        // TODO : Check if array is sorted or not
         System.out.print("Enter the length of array : ");
         int n = s.nextInt();
         int arr[] = new int[n];
@@ -43,6 +43,7 @@ public class CheckIfArrayIsSorted {
         }
         System.out.println(isSorted(arr,n));
 
+        // TODO : Check if array is sorted in descending order or not
         System.out.print("Enter the length of array : ");
         int x = s.nextInt();
         int a[] = new int[x];
