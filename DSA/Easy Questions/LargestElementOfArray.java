@@ -36,6 +36,7 @@ public class LargestElementOfArray {
     //     return i + 1;
     // }
 
+    // TODO : 1. Largest element of array : 
     public static int largestEle(int a[],int n) {
         int max = 0;
         for (int i = 0; i < n; i++) {
@@ -46,6 +47,7 @@ public class LargestElementOfArray {
         return max;
     }
 
+    // TODO : 2. Second largest and smallest element of array : (Commonly asked question)
     public static int secondLargest(int a[],int n) {
         int largest = a[0];
         int secLargest = -1; // or secLargest = Integer.MIN_VALUE;
@@ -95,7 +97,7 @@ public class LargestElementOfArray {
         }
         System.out.println("Largest Element of array is : " + largestEle(arr, n));
 
-        // TODO : 2. Second largest element of array : (Commonly asked question)
+        // TODO : 2. Second largest and smallest element of array : (Commonly asked question)
         // Brute-force : Sort the elements and run if loop to get the second largest ele (TC = N logN + N)
         // int a[] = {1,4,2,3,5,7,3,7,2};
         // quickSort(a, 0, a.length-1);
