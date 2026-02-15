@@ -33,6 +33,8 @@ public class MoveZerosToEnd {
             }
         }
 
+        if(j == -1) return; // when array has only one element (eg: {1}) then it returns from here
+
         for(int i = j+1; i<n; i++){
             if(arr[i] != 0) { // if next number to zero i.e 'i' is non zero then swap else (i.e if next num is also zero) then move to next num (i++)
                 int temp = arr[i];
@@ -44,7 +46,8 @@ public class MoveZerosToEnd {
         }
     }
     public static void main(String[] args) {
-        int nums[] = {1,2,3,0,0,4,0,5,0};
+        // int nums[] = {1};
+        int nums[] = {1,0,2,3,0,4,0,0,5,0};
         int n = nums.length;
         System.out.print("Before : ");
         for(int i  : nums) {
