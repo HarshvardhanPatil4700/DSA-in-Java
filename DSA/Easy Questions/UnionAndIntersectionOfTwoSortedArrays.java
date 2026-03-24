@@ -89,10 +89,10 @@ public class UnionAndIntersectionOfTwoSortedArrays {
         int i = 0;
         int j = 0;
         while(i < n1 && j < n2) {
-            if(a[i] < b[j]) {
+            if(a[i] < b[j]) { // if element of 1st array is grater than 2nd array increment the pointer of 1st array
                 i++;
             }
-            else if(b[j] < a[i]) {
+            else if(b[j] < a[i]) { // if element of 2nd array is grater than 1st array increment the pointer of 2nd array
                 j++;
             } 
             else {
