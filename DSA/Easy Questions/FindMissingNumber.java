@@ -2,8 +2,8 @@
 public class FindMissingNumber {
     public static int missingNum(int a[]) {
         // 1. Brute force : TC = O(N * n), SC = O(1)
-        // int n = a.length;
-        // int N = n + 1; // total numbers should be 1 to N
+        // int n = a.length;  Eg - a[] = [1,2,3,5]; then n = a.len = 4
+        // int N = n + 1; // total numbers should be 1 to N. Eg - consider array 'a'. It should be [1,2,3,4,5] so N = a.len+1 = n+1 = 5 (1 extra space too accodomate the missing number)
 
         // for (int i = 1; i <= N; i++) {
         //     int flag = 0; // reset flag for each number we check
