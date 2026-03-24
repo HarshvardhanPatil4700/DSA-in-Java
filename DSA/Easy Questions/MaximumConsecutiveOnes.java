@@ -15,6 +15,5 @@ public class MaximumConsecutiveOnes { // TC = O(n)
     public static void main(String[] args) {
         int a[] = {1,1,0,1,1,1,0,1,1};
         System.out.println(maxConsOnes(a));
-
     }    
 }
