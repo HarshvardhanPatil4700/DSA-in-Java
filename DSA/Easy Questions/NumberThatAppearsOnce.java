@@ -41,7 +41,7 @@ public class NumberThatAppearsOnce {
         // 3. Optimal Soln :- Xor
         int xor = 0;
         for(int n : nums) {
-            xor ^= n;
+            xor ^= n; // xor = xor ^ n
         }
         return xor;
     }
