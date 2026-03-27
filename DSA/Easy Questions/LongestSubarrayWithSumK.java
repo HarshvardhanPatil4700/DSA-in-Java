@@ -87,3 +87,6 @@ public class LongestSubarrayWithSumK {
         System.out.println(longestSubarray(arr, k));
     }
 }
+
+/* Total no. of subarrays that can be formed = (n * (n+1)) / 2   ....where n = total no. of ele in arr
+ */
