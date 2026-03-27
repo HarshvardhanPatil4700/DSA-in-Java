@@ -27,22 +27,47 @@ public class MaximumSubarraySumKadaneAlgo {
         // return maxi;
 
         // TODO : 3. Optimal sol : Kadane's Algorithm - TC = 
-        long maxi = Long.MIN_VALUE;
-        long sum = 0;
-        for(int i=0;i<a.length;i++) {
-            sum = sum + a[i];
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
 
-            if(sum > maxi) {
-                maxi = sum;
+        int start = 0, ansStart = -1, ansEnd = -1;
+
+        for (int i = 0; i < a.length; i++) { // iterate through array
+            // If sum is 0 it means start of new subarray
+            if (currSum == 0) {
+                start = i;
             }
-            if(sum < 0) {
-                sum = 0;
+
+            currSum += a[i];
+
+            // if subarray sum is greater than maxSum then set currSum as maxSum
+            if (currSum > maxSum) {
+                maxSum = currSum;
+                ansStart = start;
+                ansEnd = i;
             }
+
+            // If sum of any subarray is negative then ignore that subarray and set its sum as 0 
+            if (currSum < 0) {
+                currSum = 0;
+            }
+
+            // OR : {USE THIS WHEN ONLY THE SUM IS NEEDED AND THE START AND END INDEX OF SUBARRAY IS NOT NEEDED}
+            // currSum += a[i];
+            // maxSum = currSum > maxSum ? currSum : maxSum;
+            // currSum = currSum < 0 ? 0 : currSum;
         }
 
-        return maxi;
+        System.out.print("Subarray from index " + ansStart + " to " + ansEnd + " = ");
+        for(int i=ansStart;i<=ansEnd;i++) {
+            System.out.print(a[i] + ", ");
+        }
+
+        return maxSum;
     }
+    
     public static void main(String[] args) {
-        
+        int a[] = {3,-4,5,4,-1,7,-8};
+        System.out.println(maxSubarraySum(a));
     }
 }
