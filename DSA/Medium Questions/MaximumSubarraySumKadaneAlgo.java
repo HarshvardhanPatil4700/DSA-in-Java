@@ -58,6 +58,7 @@ public class MaximumSubarraySumKadaneAlgo {
             // currSum = currSum < 0 ? 0 : currSum;
         }
 
+        // Printing the subarray which has maximum sum :
         System.out.print("Subarray from index " + ansStart + " to " + ansEnd + " = ");
         for(int i=ansStart;i<=ansEnd;i++) {
             System.out.print(a[i] + ", ");
@@ -71,3 +72,9 @@ public class MaximumSubarraySumKadaneAlgo {
         System.out.println(maxSubarraySum(a));
     }
 }
+
+/*
+Note : in this problem there are 2 varieties of problem :
+1. Return the maxSum 
+2. Return the subarray along with its maxSum
+ */
