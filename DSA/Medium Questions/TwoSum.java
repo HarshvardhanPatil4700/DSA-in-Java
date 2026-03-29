@@ -1,5 +1,5 @@
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-// There are 2 varities : 1) return YES/NO. 2) return [i,j]. (where arr[i]+arr[j] = target)
+// There are 2 varieties : 1) return YES/NO. 2) return [i,j]. (where arr[i]+arr[j] = target)
 
 import java.util.Arrays;
 
@@ -9,11 +9,12 @@ public class TwoSum {
         // for(int i=0;i<a.length;i++) {
         //     for(int j=i+1;j<a.length;j++) {;
         //         if(a[i] + a[j] == target) {
-        //             // return "Yes";
-        //             return new int[]{i,j};
+        //             // return "Yes"; // VARIETY 1
+        //             return new int[]{i,j}; // VARIETY 2
         //         }
         //     }
         // }
+        // // return "No";
         // return new int[]{-1,-1}; // no such elements found in array
 
         // 2. Better sol : Hashing - TC = O(n) + O(n) = O(2n) = O(n), SC = O(n) {OPTIMAL APPROACH FOR VARIETY 2}
