@@ -1,5 +1,3 @@
-
-
 public class MajorityElement {
     public static int majorityEleCount (int a[]) {
         // 1. Brute force - TC = O(n^2) 
