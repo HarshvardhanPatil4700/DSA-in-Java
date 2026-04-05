@@ -87,7 +87,7 @@ public class NextPermutation {
         return a;
     }
 
-    // Correct reverse function (in-place)
+    // the reverse function (in-place)
     public static void reverse(int[] arr, int start, int end) {
         while (start < end) {
             int temp = arr[start];
