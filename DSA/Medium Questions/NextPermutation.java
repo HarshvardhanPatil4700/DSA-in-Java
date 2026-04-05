@@ -52,7 +52,7 @@ public class NextPermutation {
 
     //     return nums;
     
-    // 2. Optimal Sol :
+    // 2. Optimal Sol : Tc = O(n+n+n) = O(3n), Sc = O(n)
     public static int[] nextPermutation(int[] a) {
         int n = a.length;
         int ind = -1;
