@@ -40,7 +40,7 @@ public class LongestConsecutiveSequence {
     //     return false;
     // }
 
-    // 2. Optimal Sol : using order set ds
+    // 2. Optimal Sol : using order set ds. TC = O(n), SC = O(n)
     public static int longestSequence(int a[]) {
         int n = a.length;
         if (n == 0) return 0; // If the array is empty, no sequence exists
@@ -48,11 +48,11 @@ public class LongestConsecutiveSequence {
 
         Set<Integer> set = new HashSet<>();
 
-        for(int i=0;i<n;i++) { // inserting all array elements into set
+        for(int i=0;i<n;i++) { // inserting all array elements into set (O[n])
             set.add(a[i]);
         }
          
-        // Loop through each element in the set to find the starting point of consecutive sequences 
+        // Loop through each element in the set to find the starting point of consecutive sequences (O(n))
         for (int it : set) {
             if (!set.contains(it - 1)) { // If there is no number before 'it', it’s the start of a sequence
                 int cnt = 1; // Start the count for this sequence               
