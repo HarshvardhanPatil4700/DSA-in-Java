@@ -11,6 +11,7 @@ public class RotateMatrixBy90Degree {
         // return rotated;
         
         // 2. Optimal Sol : Transpose (row becomes col and col becomes row) and reverse every row
+        // TC = O(N²),We traverse every element once during transposition and again during reversal of each row, resulting in a total of O(N²) time, SC = O(1)
         int n = matrix.length; // matrix is nxn
         // Transpose : Observation- the diagonal elements remains as it is and the non-diagonal elements are swapped i.e m[i][j] -> m[j][i]
         for(int i=0;i<n;i++) {
