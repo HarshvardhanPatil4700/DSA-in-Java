@@ -3,6 +3,7 @@ import java.util.List;
 
 public class SpiralTraversalOfMatrix {
     public static List spiralTraversalMatrix(int[][] matrix) {
+        // Optimal sol : TC = O(n*m), SC = O(n*m) ...where n=no.of rows, m = no.of col 
         List result = new ArrayList<>();
 
         int top = 0; // Starting row
