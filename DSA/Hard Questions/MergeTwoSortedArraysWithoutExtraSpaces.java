@@ -68,6 +68,46 @@ public class MergeTwoSortedArraysWithoutExtraSpaces {
         Arrays.sort(arr2); 
     }
 
+    // 3. Optimal approach 2 : Gap method (uses shell sort)
+    private static void swapIfGreater(int[] arr1,int[] arr2, int ind1,int ind2) {
+        if(arr1[ind1] > arr2[ind2]) {
+            int temp = arr1[ind1];
+            arr1[ind1] = arr2[ind2];
+            arr2[ind2] = temp;
+        }
+    }
+    public static void mergeArraysOptimalApproach2(int[] arr1, int[] arr2) {
+        int n = arr1.length;
+        int m = arr2.length;
+        int len = n+m;
+        int gap = (len / 2) + (len % 2);
+        while(gap > 0) {
+            int left = 0;
+            int right = left + gap;
+
+            // NOTE : we perform (left-n) and (right-n) to get the pointer to corresponding position in respective arrays 
+            while(right < len) { 
+                // there are 3 cases : 
+                // case 1 : Comparing arr1 and arr2 elements :
+                if(left < n && right >=n) {
+                    swapIfGreater(arr1, arr2, left, right - n);
+                }
+                // case 2 : comparing arr2 and arr2 elements :
+                else if(left >=n) { // here, right >= n or right < m is not needed are right is obv to right side of left
+                    swapIfGreater(arr2, arr2, left - n, right - n);
+                } 
+                // case 3 : comparing arr1 and arr1 elements :
+                else {
+                    swapIfGreater(arr1, arr1, left, right);
+                }
+                left++;
+                right++;
+            }
+            if (gap == 1)
+                break;
+            gap = (gap / 2) + (gap % 2);
+        }
+    }
     public static void main(String[] args) {
         // int[] nums1 = {1, 3, 5};
         // int[] nums2 = {2, 4, 6};
@@ -80,6 +120,30 @@ public class MergeTwoSortedArraysWithoutExtraSpaces {
         // }
 
         // Optimal approach :
+        // int[] nums1 = {1, 3, 5};
+        // int[] nums2 = {2, 4, 6};
+        // System.out.println("Before : ");
+        // for(int i : nums1){
+        //     System.out.print(i + " ");
+        // }
+        // System.out.println();
+        // for(int j : nums2){
+        //     System.out.print(j + " ");
+        // }
+        // System.out.println();
+
+        // merge2ArraysOptimalApp(nums1, nums2);
+        
+        // System.out.println("After : ");
+        // for(int i : nums1){
+        //     System.out.print(i + " ");
+        // }
+        // System.out.println();
+        // for(int j : nums2){
+        //     System.out.print(j + " ");
+        // }
+
+        // 3. Optimal approach 2 :
         int[] nums1 = {1, 3, 5};
         int[] nums2 = {2, 4, 6};
         System.out.println("Before : ");
@@ -92,7 +156,7 @@ public class MergeTwoSortedArraysWithoutExtraSpaces {
         }
         System.out.println();
 
-        merge2ArraysOptimalApp(nums1, nums2);
+        mergeArraysOptimalApproach2(nums1, nums2);
         
         System.out.println("After : ");
         for(int i : nums1){
