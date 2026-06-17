@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MergeOverlappingIntervals {
     public static List<List<Integer>> mergeOverlapInterval(int [][]arr) {
-        // 1. Brute force :
+        // 1. Brute force : TC = O(n^2), SC = O(n)
         // Sort 2D array rows based on the first element of each row in ascending order
         Arrays.sort(arr, (a, b) -> a[0] - b[0]);
         List<List<Integer>> ans = new ArrayList<>();
@@ -30,6 +30,7 @@ public class MergeOverlappingIntervals {
         return ans;
     }
 
+    // 2. Optimal Approach : TC = O(N*logN) + O(N), we sort the entire array and then merge them in a single pass
     public static int[][] merge(int[][] interval) {
         if(interval.length < 2) {
             return interval; // because the interval with length 1 or 0 cannot be merged
