@@ -30,11 +30,57 @@ public class MergeOverlappingIntervals {
         return ans;
     }
 
+    public static int[][] merge(int[][] interval) {
+        if(interval.length < 2) {
+            return interval; // because the interval with length 1 or 0 cannot be merged
+        }
+
+        Arrays.sort(interval, (a,b) -> a[0] - b[0]);
+
+        List<int[]> result = new ArrayList<>();
+
+        int[] newInterval = interval[0];
+        result.add(newInterval);
+
+        for(int[] inter : interval) {
+            if(inter[0] < newInterval[1]) {
+                // Overlapping Intervals -> So, update the end if needed
+                newInterval[1] = Math.max(newInterval[1], inter[1]);
+            }
+            else {
+                // non overlapping intervals -> add the new interval to list
+                newInterval = inter;
+                result.add(newInterval);
+            }
+        }
+
+        return result.toArray(new int[result.size()][]);
+    }
+
     public static void main(String[] args) {
-        int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+        // 1. Bf
+        int[][] intervals = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
         List<List<Integer>> result = mergeOverlapInterval(intervals);
         for (List<Integer> interval : result) {
             System.out.print(interval + " ");
         }
+        System.out.println();
+        
+        // 2. Optimal approach :
+        int[][] intervals1 = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
+        List<List<Integer>> result1 = mergeOverlapInterval(intervals1);
+        for (List<Integer> interv : result1) {
+            System.out.print(interv + " ");
+        }
     }
 }
+
+/*
+Arrays.sort(interval, (a,b) -> a[0] - b[0]);  - Arrays.sort() → Sorts the array. (a, b) -> ... → Lambda expression (Comparator).
+a and b represent two sub-arrays being compared.
+a[0] - b[0]:
+Negative → a comes before b
+Positive → b comes before a
+Zero → considered equal
+
+*/
