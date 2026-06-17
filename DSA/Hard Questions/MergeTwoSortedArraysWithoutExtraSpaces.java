@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 public class MergeTwoSortedArraysWithoutExtraSpaces {
     public static int[] merge2SortedArrays(int[] arr1, int []arr2) {
         // 1. Brute force : TC = First loop: at most n + m iterations total.Remaining loops: process leftover elements.Total operations = n + m, SC = O(n+m) for new array i.e arr3 of size n+m
@@ -40,13 +43,62 @@ public class MergeTwoSortedArraysWithoutExtraSpaces {
 
         return arr3;
     }
+
+    // 2. Optimal approach : TC = O(min(n,m)) because at worst case it will travel until any of array gets exhausted + O(n logm) to sort arr1 + O(m logn) to sort arr2. SC = O(1)
+    public static void merge2ArraysOptimalApp(int[] arr1, int[] arr2) {
+        int n = arr1.length;
+        int m = arr2.length;
+        int left = n-1; // points to last element of arr1
+        int right = 0; // points to first ele of arr2
+        
+        while(left >= 0 && right < m) {
+            if(arr1[left] >= arr2[right]) {
+                // swap both the elements :
+                int temp = arr1[left];
+                arr1[left] = arr2[right];
+                arr2[right] = temp;
+
+                left--; right++;
+            }
+            else {
+                break; //because the rest of elements are in correct order as both arrays are sorted
+            }
+        }
+        Arrays.sort(arr1);        
+        Arrays.sort(arr2); 
+    }
+
     public static void main(String[] args) {
+        // int[] nums1 = {1, 3, 5};
+        // int[] nums2 = {2, 4, 6};
+        // int[] res = merge2SortedArrays(nums1, nums2);
+        // for(int i : nums1){
+        //     System.out.print(i + " ");
+        // }
+        // for(int j : nums2){
+        //     System.out.print(j + " ");
+        // }
+
+        // Optimal approach :
         int[] nums1 = {1, 3, 5};
         int[] nums2 = {2, 4, 6};
-        int[] res = merge2SortedArrays(nums1, nums2);
+        System.out.println("Before : ");
         for(int i : nums1){
             System.out.print(i + " ");
         }
+        System.out.println();
+        for(int j : nums2){
+            System.out.print(j + " ");
+        }
+        System.out.println();
+
+        merge2ArraysOptimalApp(nums1, nums2);
+        
+        System.out.println("After : ");
+        for(int i : nums1){
+            System.out.print(i + " ");
+        }
+        System.out.println();
         for(int j : nums2){
             System.out.print(j + " ");
         }
