@@ -30,14 +30,15 @@ public class MaximumProductSubarray {
         // 3. Optimal approach 1 - TC = O(n), SC = O(1)
         // It includes 3 observations : 1) All positives 2) Even negatives and rest are positive 3) Odd negatives and rest are positive 4) it has zeroes
         int prefix = 1, suffix = 1;
+        int n = arr.length;
         int maximum = Integer.MIN_VALUE;
-        for(int i = 0; i < arr.length; i++) {
+        for(int i = 0; i < n; i++) {
             // if prefix or suffix becomes 0 then reinitialize it and continue for remaining elements
             if(prefix == 0) prefix = 1;
             if(suffix == 0) suffix = 1;
 
             prefix = prefix * arr[i];
-            suffix = suffix * arr[i];
+            suffix = suffix * arr[n-i-1];
 
             maximum = Math.max(maximum, max(prefix,suffix));
         } 
