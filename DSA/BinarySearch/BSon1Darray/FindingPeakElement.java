@@ -1,4 +1,4 @@
-// A peak element is an element that is strictly greater than its neighbors.
+// Finding Peak element (Peak Index in Mountain Array Problem) - A peak element is an element that is strictly greater than its neighbors. i.e arr[i-1] < arr[i] > arr[i+1] then arr[i] is Peak element
 // Given a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
 // You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array. therefore , arr[] = -∞{1,2,3,4,5}-∞
 
