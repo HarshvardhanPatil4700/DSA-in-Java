@@ -41,3 +41,13 @@ public class FindingSqrtOfNumber {
 
     }
 }
+/*
+The naive method tries every number, which is slow when n is large. But our possible answer space (from 1 to n) is sorted, meaning if a certain number squared is less than or equal to n, then all smaller numbers will also work. This allows us to apply Binary Search on the answer space to efficiently find the largest number whose square is less than or equal to n.
+1.First, note that the answer lies between 1 and the given number n.
+2.Set the search range with the smallest value as 1 and the largest value as n.
+3.Use binary search within this range to test possible numbers.
+4.At each step, take the middle number and check if its square is less than or equal to n.
+5.If it is, record this number as a candidate and move right to check for a larger number.
+6.If the square is greater than n, move left to check smaller numbers.
+7.Continue this process until the range closes, and the largest recorded number will be the square root.
+ */
