@@ -72,7 +72,8 @@ public class TwoSum {
             if(sum == target) {
                 return new int[]{i,j}; // arr[i] + arr[j] = target
             }
-            else if(sum < target) {
+            
+            if(sum < target) {
                 i++;
             } else {
                 j--;
