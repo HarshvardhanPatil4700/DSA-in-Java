@@ -2,6 +2,7 @@
 
 public class Rearrange0And1 {
     public static int[] rearrange0sAnd1s(int []arr) {
+        // 2 pointer approach - TC = O(n), SC = O(1)
         int n = arr.length;
         int left = 0, right = n-1;
         while(left < right) {
