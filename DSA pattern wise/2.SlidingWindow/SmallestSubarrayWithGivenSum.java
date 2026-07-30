@@ -28,8 +28,9 @@ public class SmallestSubarrayWithGivenSum {
 
             // Check if sum is >= target and shrink window such that condition is meet in lowest subarray
             while(sum >= target) {
-                int currLen = right - left + 1;
-                minLen = Math.min(minLen, currLen);
+                // int currLen = right - left + 1;
+                // minLen = Math.min(minLen, currLen);
+                minLen = Math.min(minLen, right-left+1);
                 sum = sum - arr[left];
                 left++;
             }
