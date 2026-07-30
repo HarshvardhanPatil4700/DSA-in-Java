@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class LongestSubstringWithKdistinctCharacters {
     public static int longestKSubstr(String s,int k) {
+        // Sliding Window - TC = O(n + n) high moves n times and low moves n times.= O(n), SC = O(min(n,k)) = O(k)
         int n = s.length();
         int low = 0, res = -1;
         Map<Character,Integer> freq = new HashMap<>();
@@ -32,7 +33,14 @@ public class LongestSubstringWithKdistinctCharacters {
         return res;
     }
     public static void main(String[] args) {
-        
+        String str = "aabacbebebe";
+        System.out.println(longestKSubstr(str, 3));
+
+        String s = "aaaa";
+        System.out.println(longestKSubstr(s, 2)); // -1 bcoz no two distinct characters
+
+        String s1 = "aabaaab";
+        System.out.println(longestKSubstr(s1, 2));
     }
 }
 /* 
