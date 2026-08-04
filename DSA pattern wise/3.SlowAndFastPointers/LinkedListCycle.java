@@ -44,3 +44,7 @@ public class LinkedListCycle {
         System.out.println(hasCycle(head));
     }
 }
+/*
+TC = O(n)
+SC = O(1)
+*/
