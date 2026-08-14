@@ -1,7 +1,10 @@
 
+// import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ThreeSum {
     public static List<List<Integer>> triplets(int []arr) {
@@ -42,18 +45,49 @@ public class ThreeSum {
         // return new ArrayList<>(ans);
 
         // 3. 2 pointer sol :
+        // int n = arr.length;
+        // Arrays.sort(arr);
+        // List<List<Integer>> ans = new ArrayList<>();
+
+        // for(int i=0;i<n-2;i++) {
+        //     if(i > 0 && arr[i] == arr[i-1]) continue;
+        //     int left = i+1, right = n-1;
+        //     int sum = -1 * arr[i];
+
+        //     while(left < right) {
+        //         int add = arr[left] + arr[right];
+        //         if(add == sum) {
+        //             ans.add(Arrays.asList(arr[i], arr[left],arr[right]));
+        //             left++;
+        //             right--;
+        //             while(left < n && arr[left] == arr[left-1]) {
+        //                 left++;
+        //             }
+        //             while(right >= 0 && arr[right] == arr[right+1]) {
+        //                 right--;
+        //             }
+        //         }
+        //         else if(add < sum) {
+        //             left++;
+        //         }else {
+        //             right--;
+        //         }
+        //     }
+        // }
+        // return ans;
+
         int n = arr.length;
+        if(arr.length < 3) return new ArrayList<>();
         Arrays.sort(arr);
-        List<List<Integer>> ans = new ArrayList<>();
+        Set<List<Integer>> ans = new HashSet<>();
 
         for(int i=0;i<n-2;i++) {
-            if(i > 0 && arr[i] == arr[i-1]) continue;
+            if(i > 0 && arr[i] == arr[i-1]) continue; // to avoid duplicates
             int left = i+1, right = n-1;
-            int sum = -1 * arr[i];
 
             while(left < right) {
-                int add = arr[left] + arr[right];
-                if(add == sum) {
+                int sum = arr[i] + arr[left] + arr[right];
+                if(sum == 0) {
                     ans.add(Arrays.asList(arr[i], arr[left],arr[right]));
                     left++;
                     right--;
@@ -64,14 +98,14 @@ public class ThreeSum {
                         right--;
                     }
                 }
-                else if(add < sum) {
+                else if(sum < 0) {
                     left++;
                 }else {
                     right--;
                 }
             }
         }
-        return ans;
+        return new ArrayList<>(ans);
     }
 
     public static int threeSumClosest(int []nums,int target) {
