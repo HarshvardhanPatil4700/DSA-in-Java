@@ -13,6 +13,8 @@ public class PrefixSumIntro {
         return prefix;
     }
 
+    // We calculate the suffix sum from right to left because each suffix sum depends on the next element's suffix sum.
+    // For example: suffix[i] = arr[i] + suffix[i+1], so we must calculate suffix[i+1] first.
     public static int[] suffixSum(int[] arr) {
         int n = arr.length;
         int suffix[] = new int[n];
