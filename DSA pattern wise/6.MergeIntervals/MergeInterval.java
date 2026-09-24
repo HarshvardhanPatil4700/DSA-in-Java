@@ -42,3 +42,10 @@ public class MergeInterval {
         }
     }
 }
+// Tc : O(n log n)
+// Sorting n intervals → O(n log n)
+// Traversing intervals → O(n)
+// Converting the list to array → O(n)
+// Therefore: O(n log n) + O(n) + O(n) = O(n log n)
+
+// SC = O(n) for res
