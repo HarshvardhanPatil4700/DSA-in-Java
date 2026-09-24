@@ -13,29 +13,29 @@ public class InsertIntervals {
 
         boolean inserted = false;
         for(int i = 0; i < intervals.length; i++) {
-            // if new interval comes before current interval 
+            // there are 4 cases for inserting an interval :
+            // Case 1 : if new interval comes before current interval 
             if(!inserted && newInterval[1] < intervals[i][0]) {
                 res.add(newInterval);
                 inserted = true;
             }
 
-            // if current interval is completely before the new interval (non overlapping)
+            // Case 2 : if current interval is completely before the new interval (non overlapping)
             if(intervals[i][1] < newInterval[0]) {
                 res.add(intervals[i]);
             }
 
-            // if new interval overlapps (merges) with the current interval
+            // Case 3 : if new interval overlapps (merges) with the current interval
             else if(intervals[i][0] <= newInterval[1]) {
                 newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
                 newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
             }
-            // Add the remaining intervals
             else {
                 res.add(intervals[i]);
             }
         }
-
-        // edge case :
+        
+        // Case 4 : edge case :
         if(!inserted) {
             res.add(newInterval);
         }
