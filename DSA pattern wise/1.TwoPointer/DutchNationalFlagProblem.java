@@ -54,6 +54,20 @@ public class DutchNationalFlagProblem {
                 swap(arr, mid, high);
                 high--;
             }
+
+            // or use :
+            // switch (arr[mid]) {
+            //     case 0 -> {
+            //         swap(arr, low, mid);
+            //         low++;
+            //         mid++;
+            //     }
+            //     case 1 -> mid++;
+            //     default -> {
+            //         swap(arr, mid, high);
+            //         high--;
+            //     }
+            // }
         }
         return arr;
     }
