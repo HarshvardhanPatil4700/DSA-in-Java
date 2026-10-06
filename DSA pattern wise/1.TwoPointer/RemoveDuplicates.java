@@ -1,13 +1,12 @@
 public class RemoveDuplicates {
     public static int removeDuplicate(int []arr) {
         int n = arr.length;
-        int left = 0;
-        int right = 1;
-
         if(n == 0) return 0;
 
+        int left = 0;
+        int right = 1;
         while(right < n) {
-            if(arr[right] != arr[right-1]) { // 
+            if(arr[right] != arr[right-1]) { 
                 left++;
                 arr[left] = arr[right];
             }
