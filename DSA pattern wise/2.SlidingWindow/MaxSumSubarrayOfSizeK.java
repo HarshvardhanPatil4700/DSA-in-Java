@@ -27,7 +27,7 @@ public class MaxSumSubarrayOfSizeK {
 
         // slide the window
         for(int i=k;i<n;i++) {
-            windowSum = windowSum + arr[i] - arr[i-k];
+            windowSum = windowSum + arr[i] - arr[i-k]; // add the new element and remove the old element
             maxSum = Math.max(windowSum, maxSum);
         }
         return maxSum;
