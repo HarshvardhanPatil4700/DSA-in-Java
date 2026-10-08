@@ -14,7 +14,7 @@ public class LongestSubstringWithKdistinctCharacters {
             char c = s.charAt(high);
             freq.put(c, freq.getOrDefault(c,0) +1);
 
-            // shrink the window
+            // If length of map is greater than k :- then, shrink the window
             while(freq.size() > k) {
                 char leftChar = s.charAt(low);
                 freq.put(leftChar, freq.get(leftChar) -1);
