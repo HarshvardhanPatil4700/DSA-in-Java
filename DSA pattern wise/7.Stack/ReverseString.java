@@ -39,5 +39,10 @@ public class ReverseString {
         char[] str = {'H','a','n','n','a','h'};
         reverseString(str);
         System.out.println(str);
+
+        // using StringBuilder - create a reversed String
+        String st = "TitForTat";
+        String reversed = new StringBuilder(st).reverse().toString();
+        System.out.println(reversed);
     }
 }
