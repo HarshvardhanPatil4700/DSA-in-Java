@@ -30,7 +30,7 @@ public class RemoveAllAdjacentDuplicates {
         }
         // after processing all the characters, we will pop all the elements from the stack and form the final answer as:
         while(!st.empty()) {
-            ans = st.pop() + ans;
+            ans = st.pop() + ans; // ""+"c"="c", "c"+"a"="ca" 
         }
         return ans;
 

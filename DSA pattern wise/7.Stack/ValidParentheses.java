@@ -5,7 +5,8 @@
 
 public class ValidParentheses {
     public static boolean isValid(String s) {
-
+        
+        return false;
     }
     public static void main(String[] args) {
         
