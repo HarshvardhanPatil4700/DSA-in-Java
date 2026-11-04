@@ -66,7 +66,7 @@ public class FindMissingNumber {
 
         // return xor1 ^ xor2; // missing number
         int missingNum = xor1 ^ xor2; // missing number
-        return (missingNum >= 1 && missingNum <= n) ? missingNum : -1;
+        return (missingNum >= 1 && missingNum <= N) ? missingNum : -1;
     }
 
     public static void main(String[] args) {
